@@ -101,7 +101,41 @@ def build_feature_from_two_files(air_file, sample_file, num_points=91, feature_m
         features = np.abs(ratio).reshape(1, -1)
 
     return air_raw, sample_raw, ratio, features
+    
+def local_css():
+    st.markdown("""
+    <style>
+    /* 全局背景和字体 */
+    .main {
+        background-color: #f8f9fa;
+    }
+    /* 卡片式容器 */
+    div[data-testid="stVerticalBlock"] > div:has(div.stPlotlyChart) {
+        background-color: white;
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+    /* 按钮美化 */
+    .stButton>button {
+        width: 100%;
+        border-radius: 8px;
+        height: 3em;
+        background: linear-gradient(135deg, #00b09b, #96c93d);
+        color: white;
+        border: none;
+        font-weight: bold;
+    }
+    /* 标题美化 */
+    h1 {
+        color: #1e3d59;
+        font-family: 'Helvetica Neue', sans-serif;
+        font-weight: 800;
+    }
+    </style>
+    """, unsafe_allow_html=True)
 
+local_css()
 # ==========================================
 # 3. 模型配置
 # ==========================================
@@ -198,3 +232,4 @@ if air_file and sample_file:
                     st.error(f"预测过程出错: {e}")
 else:
     st.info("💡 请在左侧上传 AIR 和 Sample 文件。")
+local_css()
