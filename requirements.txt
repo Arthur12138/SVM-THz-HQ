@@ -4,3 +4,4 @@ joblib
 scikit-learn
 matplotlib
 oss2
+plotly.graph_objects
